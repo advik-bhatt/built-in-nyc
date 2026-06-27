@@ -1,8 +1,6 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import type { CountryScore } from "./api/creativity-map/route";
-
-const WorldMap = dynamic(() => import("@/components/WorldMap"), { ssr: false });
+import WorldMapWrapper from "@/components/WorldMapWrapper";
+import type { CountryScore } from "@/lib/types";
 
 async function getMapData(): Promise<CountryScore[]> {
   try {
@@ -84,7 +82,7 @@ export default async function Home() {
                 </span>
                 <span className="text-xs text-gray-600">live · updates on new designs</span>
               </div>
-              <WorldMap data={mapData} />
+              <WorldMapWrapper data={mapData} />
             </div>
           </div>
         </div>

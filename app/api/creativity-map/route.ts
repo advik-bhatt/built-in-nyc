@@ -1,13 +1,6 @@
 import { NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
-
-export type CountryScore = {
-  country: string;
-  designs: number;
-  makers: number;
-  avg_complexity: number;
-  score: number;
-};
+import type { CountryScore } from "@/lib/types";
 
 export async function GET() {
   try {
